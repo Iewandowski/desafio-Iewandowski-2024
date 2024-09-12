@@ -36,7 +36,6 @@ class RecintosZoo {
                 const espacoOcupado = recinto.animais.reduce((total, a) => total + (a.quantidade * this.animais[a.especie].tamanho), 0);
                 let espacoNecessario = quantidade * tamanho;
                 let espacoDisponivel = recinto.tamanhoTotal - espacoOcupado;
-                console.log("recinto: ", recinto.numero, " numero: ", espacoDisponivel);
 
                 if (carnivoro && recinto.animais.length > 0 && recinto.animais.some(a => a.especie !== animal)) return false;
 
@@ -49,9 +48,7 @@ class RecintosZoo {
                 const espacoNecessario = quantidade * tamanho;
                 
                 const primeiraEspecie = recinto.animais.length > 0 ? recinto.animais[0].especie : null;
-                console.log("recinto: ", recinto.numero);
-                console.log("primeiraEspecie: ", primeiraEspecie);
-                console.log("animal: ", animal);
+
                 if (recinto.animais.length > 0 && primeiraEspecie !== animal) {
                     espacoOcupado += 1;
                     
@@ -69,5 +66,4 @@ class RecintosZoo {
         return { recintosViaveis };
     }
 }
-
 export { RecintosZoo as RecintosZoo };
